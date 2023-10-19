@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Connect to MongoDB and list all databases
+mongo --quiet --eval "db.adminCommand({ listDatabases: 1 })" | grep 'name' | cut -d '"' -f 4
+
