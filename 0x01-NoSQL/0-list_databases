@@ -1,2 +1,5 @@
-// Lists all MongoDB databases.
-show dbs;
+#!/bin/bash
+
+# Run the MongoDB client to list databases
+mongo --quiet --eval "db.getMongo().getDBs()" | jq -r '.databases[].name'
+
