@@ -1,2 +1,11 @@
-// Lists all MongoDB databases.
-show dbs;
+conn = new Mongo();
+
+// Connect to specific database (default 'test')
+db = conn.getDB("admin"};
+
+dbs = db.adminCommand('listDatabases');
+
+dbs.databases.forEach(function(database) {
+    print(database.name + "\t" + (database.sizeOnDisk / (1024 * 1024 * 1024)).toFixed(3) + "GB");
+});
+
